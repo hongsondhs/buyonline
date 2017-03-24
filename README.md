@@ -1,2 +1,4 @@
 # Ứng dụng đặt món ăn trực tuyến
-Frameword: Ruby on rails
+Programming language: Ruby, HTML/CSS  
+Framework: Ruby on rails, Boostrap
+Database: Mysql
