@@ -2,7 +2,8 @@ class RestaurantsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @restaurants = (params[:category_id].present? ? Restaurant.filter_category(params[:category_id]) : Restaurant)
+    @search = Restaurant.search params[:q]
+    @restaurants = (params[:category_id].present? ? @search.result.distinct.filter_category(params[:category_id]) : @search.result.distinct)
       .order_desc.page(params[:page]).per Settings.restaurants.page_size
     @categories = Category.restaurant.all
     @hot_restaurants = Restaurant.hot_restaurant.limit(Settings.restaurants.hot_restaurant_limit)

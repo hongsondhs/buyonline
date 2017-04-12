@@ -25,7 +25,7 @@ h1 Chi tiết nhà hàng
             td= "#{number_to_currency @restaurant.min_price} ~ #{number_to_currency @restaurant.max_price}"
           tr
             th Thời gian giao hàng
-            td= "#{@restaurant.open_time} ~ #{@restaurant.close_time}"
+            td= "#{float_to_time @restaurant.open_time} ~ #{float_to_time @restaurant.close_time}"
           tr
             th Chi phí giao hàng (/1km)
             td= "#{number_to_currency @restaurant.delivery_fee}/km"

@@ -45,9 +45,9 @@
   .row
     .col-xs-4= f.label :open_time, "Thời gian giao hàng"
     .col-xs-1.no-padding.text-center Từ
-    .col-xs-2.no-padding= f.time_field :open_time, value: @restaurant.open_time, class: "form-control", required: true
+    .col-xs-2.no-padding= f.time_field :open_time, value: float_to_time(@restaurant.open_time), class: "form-control", required: true
     .col-xs-1.no-padding.text-center Đến
-    .col-xs-2.no-padding= f.time_field :close_time, value: @restaurant.close_time, class: "form-control", required: true
+    .col-xs-2.no-padding= f.time_field :close_time, value: float_to_time(@restaurant.close_time), class: "form-control", required: true
   br
   .row
     .col-xs-4= f.label :free_delivery_fee

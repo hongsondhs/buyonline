@@ -14,6 +14,8 @@ class Restaurant < ApplicationRecord
 
   enum status: [:opening, :closed, :pending]
 
+  before_save :string_time_to_float
+
   scope :hot_restaurant, ->{order order_count: :desc}
   scope :order_desc, ->{order created_at: :desc}
   scope :filter_category, ->(category_id){joins(:restaurant_categories).where restaurant_categories: {category_id: category_id}}
@@ -25,5 +27,10 @@ class Restaurant < ApplicationRecord
 
   def calc_rate
     self.rates.present? ? self.rates.sum(:vote).to_f.round(2)/self.rates.count : 0
+  end
+
+  def string_time_to_float
+    self.open_time = self.open_time.split(":")[1]/60 + self.open_time.split(":")[0]
+    self.close_time = self.close_time.split(":")[1]/60 + self.close_time.split(":")[0]
   end
 end

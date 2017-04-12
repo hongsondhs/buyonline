@@ -27,7 +27,7 @@ scss:
           span.basic-content= @restaurant.phone
         p
           i.glyphicon.glyphicon-time
-          span.basic-content= "#{@restaurant.open_time} ~ #{@restaurant.close_time}"
+          span.basic-content= "#{float_to_time @restaurant.open_time} ~ #{float_to_time @restaurant.close_time}"
           span.basic-content |
           i.glyphicon.glyphicon-usd
           span.basic-content= "#{number_to_currency @restaurant.min_price} ~ #{number_to_currency @restaurant.max_price}"
