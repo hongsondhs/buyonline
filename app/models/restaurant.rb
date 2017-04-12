@@ -23,6 +23,10 @@ class Restaurant < ApplicationRecord
   # validates :name, :address, :min_price, :max_price, :open_time, :close_time,
   #   :free_delivery_fee, :delivery_fee, presence: true
 
+  ransacker :avg_rate do |parent|
+    Arel.sql "(SELECT AVG(vote) FROM `rates` WHERE restaurant_id=restaurants.id)"
+  end
+
   def calc_rate
     self.rates.present? ? self.rates.sum(:vote).to_f.round(2)/self.rates.count : 0
   end

@@ -5,6 +5,10 @@ defaults: &defaults
   restaurants:
     hot_restaurant_limit: 10
     page_size: 10
+    price_slider:
+      step: 1000
+      min_price: 10000
+      max_price: 1000000
   pages:
     new_restaurant_limit: 8
     hot_restaurant_limit: 4
