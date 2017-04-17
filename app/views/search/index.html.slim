@@ -1,0 +1,13 @@
+.section
+  .container
+    .row
+      .col-sm-7.col-md-9
+        .company-detail-wrapper
+          .filter-wrapper
+          .restaurant-list-wrapper
+            = render @restaurants
+        .paper-wrapper
+          - if @restaurants.empty?
+            span.color-red Không có nhà hàng nào được tìm thấy!
+
+          .page-list= paginate @restaurants

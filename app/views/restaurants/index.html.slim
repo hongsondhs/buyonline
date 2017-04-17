@@ -27,39 +27,9 @@ css:
         .company-detail-wrapper
           .filter-wrapper
           .restaurant-list-wrapper
-            - @restaurants.each do |restaurant|
-              .restaurant-item-list
-                .col-md-2.image
-                  = image_tag restaurant.url_avatar unless restaurant.url_avatar.blank?
-                .col-md-10.restaurant-content
-                  .row
-                    .col-sm-7.col-md-8
-                      h4= link_to restaurant.name, restaurant
-                      .meta-div= restaurant.address
-                      p.texing= restaurant.description
-                      p.pull-left class="rate-#{restaurant.id}"
-                      span.rate-vote= "(#{restaurant.rates.count})"
-                      javascript:
-                        $(document).ready(function(){
-                          $(".rate-#{restaurant.id}").rateYo({
-                            rating: "#{restaurant.calc_rate}",
-                            starWidth: "20px",
-                            readOnly: true
-                          })
-                        });
-                    .col-sm-5.col-md-4
-                      ul.meta-list
-                        li
-                          span Giờ mở cửa:
-                          = "#{restaurant.open_time} ~ #{restaurant.close_time}"
-                        li
-                          span Đặt tối thiểu:
-                          = number_to_currency restaurant.min_order
-                      = link_to "Đặt hàng", restaurant, class: "btn btn-primary"
-                .clearfix
+            = render @restaurants
         .paper-wrapper
           - if @restaurants.empty?
             span.color-red Không có nhà hàng nào được tìm thấy!
 
           .page-list= paginate @restaurants
-

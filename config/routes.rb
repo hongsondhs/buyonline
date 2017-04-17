@@ -32,5 +32,6 @@ Rails.application.routes.draw do
   resources :bills
   resources :restaurants
   resources :rates
+  get "/search", to: "search#index"
   get "/*page", to: "pages#show"
 end
