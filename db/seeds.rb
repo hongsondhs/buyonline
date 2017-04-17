@@ -10,7 +10,7 @@ end
     restaurant = Restaurant.create name: "restaurant #{i}#{j+1}",
       address: Faker::Address.street_address,
       phone: Faker::PhoneNumber.cell_phone,
-      open_time: "08:00",
+      open_time: "07:00",
       close_time: "20:00",
       url_avatar: Faker::Avatar.image,
       status: ["pending", "opening"].sample,
