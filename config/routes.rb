@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :restaurant_categories
     resources :food_categories
+    resources :users
     resources :restaurants do
       get "/confirm", to: "restaurants#confirm", on: :member
     end

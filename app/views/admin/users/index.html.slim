@@ -1,0 +1,19 @@
+h1 Quản lý người dùng
+.row
+  .col-xs-12
+    .box
+      .box-header
+        h3.box-title Danh sách người dùng
+      .box-body
+        table.table.table-bordered.table-hover.data-table
+          thead
+            tr
+              th STT
+              th Tên
+              th Email
+              th SĐT
+              th Địa chỉ
+              th Trạng thái
+              th
+          tbody
+            = render @users

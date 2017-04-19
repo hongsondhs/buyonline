@@ -36,4 +36,12 @@ class User < ApplicationRecord
       user.skip_confirmation!
     end
   end
+
+  def active_for_authentication?
+    super and self.is_active?
+  end
+
+  def status
+    is_active ? "Đang hoạt động" : "Đã bị khóa"
+  end
 end
