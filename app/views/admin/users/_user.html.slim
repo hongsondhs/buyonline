@@ -1,0 +1,14 @@
+tr
+  td= user.id
+  td= link_to user.name, admin_user_path(user)
+  td= user.email
+  td= user.phone
+  td= user.address
+  td= user.status
+  td
+    - if user.is_active
+      = link_to t(".deactivate"), [:admin, user],
+        method: :put, class: "btn btn-warning"
+    - else
+      = link_to t(".activate"), [:admin, user],
+        method: :put, class: "btn btn-success"

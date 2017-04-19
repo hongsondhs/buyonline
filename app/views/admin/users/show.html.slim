@@ -1,0 +1,29 @@
+.col-md-12.
+  h2.text-center= t ".user_information"
+  .box.box-primary
+    table.table
+      tr
+        th.col-md-3 STT
+        td= @user.id
+      tr
+        th Tên
+        td= @user.name
+      tr
+        th Email
+        td= @user.email
+      tr
+        th SĐT
+        td= @user.phone
+      tr
+        th Địa chỉ
+        td= @user.address
+      tr
+        th Trạng thái
+        td= @user.status
+      tr
+        th Nhà hàng
+        td
+          - if @user.restaurant && @user.restaurant.opening?
+            | Chủ của nhà hàng: #{@user.restaurant.name}
+          - else
+            | Không có nhà hàng!
